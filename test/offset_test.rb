@@ -19,4 +19,8 @@ class OffsetTest < Minitest::Test
     assert_equal "010619", @offset.date
   end
 
+  def test_offset_geneated_from_date
+    assert_equal "3161", @offset.generate_offset
+  end
+
 end
