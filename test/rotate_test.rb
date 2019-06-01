@@ -17,4 +17,8 @@ class RotateTest < Minitest::Test
     assert_instance_of Rotate, @rotate
   end
 
+  def test_find_character_index
+    assert_equal 4, @rotate.find_character_index("E")
+  end
+
 end
