@@ -17,4 +17,11 @@ class KeyGenTest < Minitest::Test
     assert_equal 5, @keygen.key.length
   end
 
+  def test_is_random
+    num_1 = @keygen.key
+    num_2 = @keygen.key
+
+    assert num_1 != num_2
+  end
+
 end
