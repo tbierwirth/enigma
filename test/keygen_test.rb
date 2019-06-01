@@ -13,4 +13,8 @@ class KeyGenTest < Minitest::Test
     assert_instance_of KeyGen, @keygen
   end
 
+  def test_for_five_digits
+    assert_equal 5, @keygen.key.length
+  end
+
 end
