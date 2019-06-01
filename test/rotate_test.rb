@@ -23,4 +23,9 @@ class RotateTest < Minitest::Test
     assert_equal "e", @rotate.get_character(4)
   end
 
+  def test_shift_character
+    assert_equal "h", @rotate.shift_character('e', 3)
+    assert_equal "b", @rotate.shift_character('z', 3)
+  end
+
 end
