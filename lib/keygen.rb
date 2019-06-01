@@ -4,7 +4,7 @@ class KeyGen
     key = 5.times.map{rand(0..9)}
   end
 
-  def assign_shift
+  def generate_shift
     shift = []
     key.each_cons(2){|a| shift << a.join}
     shift
