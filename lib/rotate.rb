@@ -8,4 +8,8 @@ class Rotate
     @chars.index(char.downcase)
   end
 
+  def get_character(index)
+    @chars[index]
+  end
+
 end
