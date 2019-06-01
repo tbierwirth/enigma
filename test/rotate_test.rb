@@ -3,8 +3,6 @@ SimpleCov.start
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/keygen'
-require './lib/offset'
 require './lib/rotate'
 
 class RotateTest < Minitest::Test
