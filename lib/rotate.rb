@@ -12,4 +12,11 @@ class Rotate
     @chars[index]
   end
 
+  def shift_character(char, offset)
+    index = find_character_index(char)
+    new_index = index + offset
+    shift = new_index % @chars.length
+    get_character(shift)
+  end
+
 end
