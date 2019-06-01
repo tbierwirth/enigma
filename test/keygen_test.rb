@@ -24,4 +24,8 @@ class KeyGenTest < Minitest::Test
     assert num_1 != num_2
   end
 
+  def test_size_of_shift_generated
+    assert_equal 4, @keygen.assign_shift.length
+  end
+
 end
