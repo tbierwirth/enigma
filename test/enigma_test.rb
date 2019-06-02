@@ -24,13 +24,22 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  def test_encrypt_message
+  def test_encrypt_message_with_key_date
     encryption = {
      encryption: "keder ohulw",
      key: "02715",
      date: "040895"
     }
     assert_equal encryption, @enigma.encrypt("Hello world", "02715", "040895")
+  end
+
+  def test_encrypt_message_with_key_no_date
+    encryption = {
+     encryption: "mfhatasdwm ",
+     key: "02715",
+     date: "020619"
+    }
+    assert_equal encryption, @enigma.encrypt("Hello world", "02715")
   end
 
 end
