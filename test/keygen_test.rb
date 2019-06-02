@@ -27,7 +27,8 @@ class KeyGenTest < Minitest::Test
   end
 
   def test_size_of_shift_generated
-    assert_equal 4, @keygen.generate_shift.length
+    key = @keygen.key
+    assert_equal 4, @keygen.generate_shift(key).length
   end
 
 end
