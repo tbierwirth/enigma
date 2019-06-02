@@ -18,7 +18,7 @@ class Enigma
       encrypted_message << @rotate.shift_character(char, shift.first)
       shift.rotate!
     end
-    encrypted_message.join
+    hash = {encryption: encrypted_message.join, key: key, date: date}
   end
 
 end
