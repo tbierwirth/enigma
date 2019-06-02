@@ -11,7 +11,7 @@ class Enigma
     @rotate = Rotate.new
   end
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = @keygen.key, date = @offset.date)
     encrypted_message = []
     shift = @offset.generate_shift(@keygen.generate_shift(key.chars), @offset.generate_offset(date))
     message.chars.map.with_index do |char, index|
