@@ -28,4 +28,8 @@ class RotateTest < Minitest::Test
     assert_equal "b", @rotate.shift_character('z', 3)
   end
 
+  def test_unshift_character
+    assert_equal "b", @rotate.unshift_character('e', 3)
+  end
+
 end
