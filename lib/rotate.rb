@@ -19,4 +19,11 @@ class Rotate
     get_character(shift)
   end
 
+  def unshift_character(char, offset)
+    index = find_character_index(char)
+    new_index = (offset - index).abs
+    shift = new_index % @chars.length
+    get_character(shift)
+  end
+
 end
