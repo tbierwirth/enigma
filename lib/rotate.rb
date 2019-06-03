@@ -1,4 +1,3 @@
-require 'pry'
 class Rotate
 
   def initialize()
