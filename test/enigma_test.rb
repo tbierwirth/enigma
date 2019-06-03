@@ -58,7 +58,16 @@ class EnigmaTest < Minitest::Test
       key: "02715",
       date: "040895"
     }
-    assert_equal decryptionm, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal decryption, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_decrypt_message_no_date
+    decryption = {
+      decryption: "hello world",
+      key: "02715",
+      date: "020619"
+    }
+    assert_equal decryption, @enigma.decrypt("mfhatasdwm ", "02715")
   end
 
 end
