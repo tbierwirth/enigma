@@ -6,11 +6,7 @@ class Rotate
   end
 
   def find_character_index(char)
-    if @chars.include?(char)
-      @chars.index(char.downcase)
-    else
-      return
-    end
+    @chars.index(char.downcase)
   end
 
   def get_character(index)
@@ -18,7 +14,7 @@ class Rotate
   end
 
   def shift_character(char, offset, unshift = false)
-    if @chars.include?(char)
+    if @chars.include?(char.downcase)
       index = find_character_index(char)
       unshift == false ? new_index = (index + offset) : new_index = (index - offset)
       shift = new_index % @chars.length
