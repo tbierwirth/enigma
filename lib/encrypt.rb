@@ -3,6 +3,7 @@ enigma = Enigma.new
 
 if ARGV.length != 2
     puts "Please give exactly two parameters."
+    puts "Example: ruby ./lib/encrypt.rb message.txt encrypted.txt"
     exit
 end
 
