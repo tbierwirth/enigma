@@ -83,4 +83,8 @@ class EnigmaTest < Minitest::Test
     assert_equal decryption, @enigma.decrypt("mfhatasdwm ", "02715")
   end
 
+  def test_generate_date
+    assert_equal Date.today.strftime("%d%m%y"), @offset.date
+  end
+
 end
