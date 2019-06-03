@@ -3,6 +3,7 @@ SimpleCov.start
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require './lib/keygen'
 require './lib/offset'
 require './lib/rotate'
@@ -48,16 +49,18 @@ class EnigmaTest < Minitest::Test
      key: "02715",
      date: "020619"
     }
+    Offset.any_instance.stubs(:date).returns("020619")
     assert_equal encryption, @enigma.encrypt("Hello world", "02715")
   end
 
   def test_encrypt_message_with_no_key_no_date
-    skip
     encryption = {
-     encryption: "mfhatasdwm ",
-     key: "02715",
+     encryption: "bhcxicn lov",
+     key: "45665",
      date: "020619"
     }
+    KeyGen.any_instance.stubs(:key).returns("45665")
+    Offset.any_instance.stubs(:date).returns("020619")
     assert_equal encryption, @enigma.encrypt("Hello world")
   end
 
@@ -76,7 +79,12 @@ class EnigmaTest < Minitest::Test
       key: "02715",
       date: "020619"
     }
+    Offset.any_instance.stubs(:date).returns("020619")
     assert_equal decryption, @enigma.decrypt("mfhatasdwm ", "02715")
+  end
+
+  def test_generate_date
+    assert_equal Date.today.strftime("%d%m%y"), @offset.date
   end
 
 end

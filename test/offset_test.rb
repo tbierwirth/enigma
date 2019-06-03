@@ -3,9 +3,9 @@ SimpleCov.start
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require './lib/keygen'
 require './lib/offset'
-require 'date'
 
 class OffsetTest < Minitest::Test
 
@@ -19,9 +19,8 @@ class OffsetTest < Minitest::Test
   end
 
   def test_date_generated
-    @offset.stub :date, "010619" do
-      assert_equal "010619", @offset.date
-    end
+    Offset.any_instance.stubs(:date).returns("020619")
+    assert_equal "020619", @offset.date
   end
 
   def test_offset_geneated_from_date
