@@ -4,3 +4,4 @@ Gemfile.lock
 Rakefile
 message.txt
 encrypted.txt
+decrypted.txt
