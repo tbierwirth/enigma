@@ -43,12 +43,22 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_message_with_no_key_no_date
+    skip
     encryption = {
      encryption: "mfhatasdwm ",
      key: "02715",
      date: "020619"
     }
     assert_equal encryption, @enigma.encrypt("Hello world")
+  end
+
+  def test_decrypt_message
+    decryption = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal decryptionm, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
 
 end
