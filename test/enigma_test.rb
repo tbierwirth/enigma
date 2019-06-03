@@ -42,4 +42,32 @@ class EnigmaTest < Minitest::Test
     assert_equal encryption, @enigma.encrypt("Hello world", "02715")
   end
 
+  def test_encrypt_message_with_no_key_no_date
+    skip
+    encryption = {
+     encryption: "mfhatasdwm ",
+     key: "02715",
+     date: "020619"
+    }
+    assert_equal encryption, @enigma.encrypt("Hello world")
+  end
+
+  def test_decrypt_message
+    decryption = {
+      decryption: "hello world",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal decryption, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_decrypt_message_no_date
+    decryption = {
+      decryption: "hello world",
+      key: "02715",
+      date: "020619"
+    }
+    assert_equal decryption, @enigma.decrypt("mfhatasdwm ", "02715")
+  end
+
 end
