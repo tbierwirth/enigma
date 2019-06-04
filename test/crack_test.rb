@@ -14,4 +14,9 @@ class CrackTest < Minitest::Test
     assert_instance_of Crack, @crack
   end
 
+  def test_possible_keys
+    @crack.generate_keys
+    assert_equal 99999, @crack.possible_keys
+  end
+
 end
