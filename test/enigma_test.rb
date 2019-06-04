@@ -87,4 +87,13 @@ class EnigmaTest < Minitest::Test
     assert_equal Date.today.strftime("%d%m%y"), @offset.date
   end
 
+  def test_crack_key
+    expected = {
+     decryption: "hello world end",
+     date: "291018",
+     key: "08304"
+   }
+   assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "291018")
+  end
+
 end
