@@ -15,8 +15,7 @@ class CrackTest < Minitest::Test
   end
 
   def test_possible_keys
-    @crack.generate_keys
-    assert_equal 99999, @crack.possible_keys
+    assert_equal 100000, @crack.possible_keys.uniq.count
   end
 
 end
