@@ -35,7 +35,7 @@ class Enigma
 
   def crack(message, date = @offset.date)
     key = @crack.possible_keys.find do |key|
-      decrypt(message, key, date)[:decryption].include?(" end")
+      decrypt(message, key, date)[:decryption].split(//).last(4).join.include?(" end")
     end
     {decryption: decrypt(message, key, date)[:decryption], key: key, date: date}
   end
