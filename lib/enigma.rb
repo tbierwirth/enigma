@@ -34,13 +34,12 @@ class Enigma
   end
 
   def crack(message, date = @offset.date)
-    attempts = Hash.new(0)
+    attempts = 0
     key = @crack.possible_keys.find do |key|
-      attempts[:attempts] += 1
+      attempts += 1
       decrypt(message, key, date)[:decryption].split(//).last(4).join.include?(" end")
     end
-    {decryption: decrypt(message, key, date)[:decryption], key: key, date: date}
-    binding.pry
+    {decryption: decrypt(message, key, date)[:decryption], key: key, date: date, attempts: attempts}
   end
 
 end
