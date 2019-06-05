@@ -34,15 +34,6 @@ class EnigmaTest < Minitest::Test
     assert_equal encryption, @enigma.encrypt("Hello world", "02715", "040895")
   end
 
-  def test_encrypt_message_with_key_date
-    encryption = {
-     encryption: "keder ohulw!",
-     key: "02715",
-     date: "040895"
-    }
-    assert_equal encryption, @enigma.encrypt("Hello world!", "02715", "040895")
-  end
-
   def test_encrypt_message_with_key_no_date
     encryption = {
      encryption: "mfhatasdwm ",
@@ -85,6 +76,28 @@ class EnigmaTest < Minitest::Test
 
   def test_generate_date
     assert_equal Date.today.strftime("%d%m%y"), @offset.date
+  end
+
+  def test_crack_key
+    expected = {
+     decryption: "hello world end",
+     key: "08304",
+     date: "291018",
+     attempts: @enigma.crack("vjqtbeaweqihssi", "291018")[:attempts]
+   }
+   Offset.any_instance.stubs(:date).returns("291018")
+   assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "291018")
+  end
+
+  def test_crack_key_no_date
+    expected = {
+     decryption: "hey my name is tyler!!! end",
+     key: "47560",
+     date: "040619",
+     attempts: @enigma.crack("d fgithuxhmgenh ugmy!!!gail")[:attempts]
+   }
+   Offset.any_instance.stubs(:date).returns("040619")
+   assert_equal expected, @enigma.crack("d fgithuxhmgenh ugmy!!!gail")
   end
 
 end
