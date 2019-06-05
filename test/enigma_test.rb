@@ -82,7 +82,8 @@ class EnigmaTest < Minitest::Test
     expected = {
      decryption: "hello world end",
      key: "08304",
-     date: "291018"
+     date: "291018",
+     attempts: @enigma.crack("vjqtbeaweqihssi", "291018")[:attempts]
    }
    Offset.any_instance.stubs(:date).returns("291018")
    assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "291018")
@@ -92,7 +93,8 @@ class EnigmaTest < Minitest::Test
     expected = {
      decryption: "hey my name is tyler!!! end",
      key: "47560",
-     date: "040619"
+     date: "040619",
+     attempts: @enigma.crack("d fgithuxhmgenh ugmy!!!gail")[:attempts]
    }
    Offset.any_instance.stubs(:date).returns("040619")
    assert_equal expected, @enigma.crack("d fgithuxhmgenh ugmy!!!gail")
